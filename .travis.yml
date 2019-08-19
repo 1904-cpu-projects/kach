@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - node
+services:
+  - postgresql
+addons:
+  postgresql: '9.6'
+dist: trusty
+sudo: false
+install:
+  - npm ci
+before_script:
+  - psql -c 'create database "kach-grace-shopper";' -U postgres
+before_deploy:
+  - rm -rf node_modules
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  app: kach-cpu
+  
