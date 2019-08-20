@@ -3,7 +3,7 @@ const expect = require('chai').expect
 
 describe('/api/user routes', () => {
     describe('/user/:id GET URI', () => {
-        it('should fetch a user', () => {
+        xit('should fetch a user', () => {
             app
             .get(`/api/user`)
         })

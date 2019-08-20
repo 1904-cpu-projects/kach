@@ -10,7 +10,7 @@ const isAdmin = async (req, res, next) => {
     if (user.isAdmin) next()
     else throw 'Unauthorized User'
   } catch (err) {
-    res.status(401).redirect('/#/signin')
+    res.status(401).redirect('/#/signin')//TODO: learn how 302 status/redirecting should work 
   }
 }
 

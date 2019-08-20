@@ -67,9 +67,9 @@ const deleteProduct = (productId) => (dispatch, getState, axios) => {
     .catch(err => console.error(err));
 }
 
-const updateProduct = (adminProductUpdates) => (dispatch, getState, axios) => {
+const updateProduct = (productUpdates) => (dispatch, getState, axios) => {
   //TODO: remove userId from body and get from session after sessions are working (changing adminProductUpdates to only productUpdates)
-  axios.put(`/api/products/${adminProductUpdates.productUpdates.id}`, adminProductUpdates)
+  axios.put(`/api/products/${productUpdates.id}`, productUpdates)
   .then(({data:updatedProduct}) => dispatch({type: ACT.UPDATE_PRODUCT, updatedProduct}))
   .catch(err => console.error(err));
 };

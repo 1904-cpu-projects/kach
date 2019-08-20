@@ -72,7 +72,7 @@ class ProductForm extends Component {
       if (catStr && !categories.includes(catStr)) categories.push(catStr) //TODO: verify this is changing state (i.e. productUpdates) prior to updateProduct call
     })
 
-    updateProduct({userId, productUpdates}); //TODO: remove userId from body and get from session after sessions are working
+    updateProduct(productUpdates); //TODO: remove userId from body and get from session after sessions are working
     this.setState({product:{}, newCategories:''});
     history.push(`/products/${productUpdates.id}`);
   }
@@ -144,7 +144,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getProduct: (productId) => dispatch(fetchProduct(productId)),
-  updateProduct: (adminProductUpdates) => dispatch(updateProduct(adminProductUpdates)),
+  updateProduct: (productUpdates) => dispatch(updateProduct(productUpdates)),
   getUpdatedCategories: () => dispatch(fetchAndCategorizeProducts()),
 });
 
